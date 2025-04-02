@@ -1,0 +1,111 @@
+.box1 {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 550px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 80px;
+}
+
+.listitem1 {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+    list-style: none;
+    width: 100%;
+}
+
+.listitem {
+    flex-grow: 1;
+    margin-left: 10px;
+    font-size: 16px;
+    color: #333;
+    padding: 5px;
+}
+
+#footer1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footer1 button {
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#footer1 button:hover {
+    color: #000000;
+}
+
+#input {
+    width: 80%;
+    padding: 15px 5px;
+    font-size: 16px;
+    color: #333;
+    border: none;
+
+}
+
+#input:focus {
+    outline: none;
+    border: none;
+}
+
+.select-all {
+    margin-right: 10px;
+}
+
+#all {
+    padding-left: 100px;
+}
+
+#remove-selected {
+    padding-left: 90px;
+}
+
+#count {
+    padding-left: 10px;
+}
+
+.remove-this {
+    border: none;
+    background-color: #ffffff;
+    opacity: 1;
+    font-size: large;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.search-container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.button {
+    padding: 12px 24px;
+    background-color: #000000;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #4d4e4f;
+}
