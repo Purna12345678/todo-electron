@@ -22,10 +22,10 @@
     "preview": "vite preview",
     "eject": "react-scripts eject",
     "build:css": "postcss public/dist/**/*.css --replace",
-    "build:html": "posthtml src/**/*.tsx -o src/tsx/tsx",
+    "build:html": "posthtml public/dist/**/*.css --replace",
     "watch:css": "postcss src/**/*.css --watch --dir src/css/css",
     "watch:html": "posthtml src/**/*.html -o dist --watch",
-    "process:tsx": "ts-node posthtml.config.ts",
+    "process:tsx": "concurrently \"tsc posthtml.config.ts \" \"node posthtml.config.js\"",
     "build:all": "concurrently \"npm run build:css\" \"npm run process:tsx\""
   },
   "eslintConfig": {
