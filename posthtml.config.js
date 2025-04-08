@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs-extra");
 var path = require("path");
 var inputDir = "public/dist";
+var inputDir1 = "dist";
 var prefix = "opteamix-";
 var processFile = function (filePath) {
     fs.readFile(filePath, "utf8", function (err, data) {
@@ -51,3 +52,4 @@ var processDirectory = function (dir) {
     });
 };
 processDirectory(inputDir);
+processDirectory(inputDir1);
