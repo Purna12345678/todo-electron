@@ -15,10 +15,12 @@ const getStoredList = (): TodoItem[] => {
   const storedList = localStorage.getItem("todoList");
   return storedList ? JSON.parse(storedList) : [];
 };
+
 const get = (): TodoItem[] => {
   const storedList = localStorage.getItem("todoListApi");
   return storedList ? JSON.parse(storedList) : [];
 };
+
 
 
 
@@ -91,6 +93,9 @@ const addApi = async () => {
     const selectedItems = list.filter((item) => item.compleated);
     selectedItems.forEach((item) => deleteItem(item.id));
     setList(updatedList);
+    if (updatedList.length === 0) {
+      localStorage.setItem("todoListApi",JSON.stringify([]));
+    }
   };
 
   const toggleSelectAll = () => {
