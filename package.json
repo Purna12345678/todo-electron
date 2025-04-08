@@ -26,7 +26,10 @@
     "watch:css": "postcss src/**/*.css --watch --dir src/css/css",
     "watch:html": "posthtml src/**/*.html -o dist --watch",
     "process:tsx": "concurrently \"tsc posthtml.config.ts \" \"node posthtml.config.js\"",
-    "build:all": "concurrently \"npm run build:css\" \"npm run process:tsx\""
+    "build:all": "concurrently \"npm run build:css\" \"npm run process:tsx\"",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +50,10 @@
     ]
   },
   "devDependencies": {
+    "@electron-forge/cli": "^7.8.0",
+    "@electron-forge/maker-squirrel": "^7.8.0",
+    "@electron-forge/maker-zip": "^7.8.0",
+    "@electron-forge/plugin-vite": "^7.8.0",
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "@types/fs-extra": "^11.0.4",
@@ -56,6 +63,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "^9.1.2",
     "cssnano": "^7.0.6",
+    "electron": "^35.1.4",
     "fs-extra": "^11.3.0",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss": "^8.5.3",
@@ -75,7 +83,10 @@
     "webpack-cli": "^6.0.1"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "postcss.config.js",
+  "main": "./dist/main/main.js",
+  "config": {
+    "forge": "./forge.config.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"

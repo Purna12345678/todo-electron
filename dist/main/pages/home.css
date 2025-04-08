@@ -6,3 +6,11 @@ body {
     flex-direction: row;
     justify-content: center;
 }
+
+#title {
+    padding-left: 110px;
+    padding-right: 110px;
+    font-size: 100px;
+    margin: 30px;
+    font-weight: 100;
+}
