@@ -15,20 +15,27 @@ const getStoredList = (): TodoItem[] => {
   const storedList = localStorage.getItem("todoList");
   return storedList ? JSON.parse(storedList) : [];
 };
+const get = (): TodoItem[] => {
+  const storedList = localStorage.getItem("todoListApi");
+  return storedList ? JSON.parse(storedList) : [];
+};
+
 
 
 const Form: React.FC = () => {
   const [list, setList] = useState<TodoItem[]>(getStoredList);
 const [inputValue, setInputValue] = useState<string>("");
 const [searchQuery, setSearchQuery] = useState<string>("");
-
+const [Apilist , setApiList] = useState<TodoItem[]>(get);
 
 const addApi = async () => {
   try {
-    const newList = await getItems();
+    const newList = await getItems(Apilist.length);
 
     setList((prevList) => [...prevList, ...newList]);
     localStorage.setItem("todoList", JSON.stringify([...list, ...newList])); 
+    setApiList((List) => [...Apilist, ...newList]);
+    localStorage.setItem("todoListApi", JSON.stringify([...Apilist, ...newList]))
   } catch (error) {
     console.error("Error fetching API data:", error);
   }

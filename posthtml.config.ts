@@ -2,6 +2,7 @@ import * as fs from "fs-extra";
 import * as path from "path";
 
 const inputDir = "public/dist";
+const inputDir1 = "dist";
 const prefix = "opteamix-";
 
 const processFile = (filePath: string): void => {
@@ -60,3 +61,4 @@ const processDirectory = (dir: string): void => {
 };
 
 processDirectory(inputDir);
+processDirectory(inputDir1);
