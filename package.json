@@ -1,6 +1,8 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "main": "electron/main.js",
+  "author": "Purnachandra Yadav",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -10,27 +12,29 @@
     "axios": "^1.8.4",
     "crypto-browserify": "^3.12.1",
     "dotenv": "^16.4.7",
+    "electron-squirrel-startup": "^1.0.1",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "vite-plugin-electron": "^0.29.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
     "eject": "react-scripts eject",
     "build:css": "postcss public/dist/**/*.css --replace",
-    "build:css:elec": "postcss dist/**/*.css --replace",
     "build:html": "posthtml public/dist/**/*.css --replace",
     "watch:css": "postcss src/**/*.css --watch --dir src/css/css",
     "watch:html": "posthtml src/**/*.html -o dist --watch",
     "process:tsx": "concurrently \"tsc posthtml.config.ts \" \"node posthtml.config.js\"",
-    "build:all": "concurrently \"npm run build:css\" \"npm run process:tsx\" \"npm run build:css:elec\"",
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "build:all": "concurrently \"npm run build:css\" \"npm run process:tsx\""
   },
   "eslintConfig": {
     "extends": [
@@ -52,9 +56,14 @@
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.8.0",
+    "@electron-forge/maker-deb": "^7.8.0",
+    "@electron-forge/maker-rpm": "^7.8.0",
     "@electron-forge/maker-squirrel": "^7.8.0",
     "@electron-forge/maker-zip": "^7.8.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.0",
+    "@electron-forge/plugin-fuses": "^7.8.0",
     "@electron-forge/plugin-vite": "^7.8.0",
+    "@electron/fuses": "^1.8.0",
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "@types/fs-extra": "^11.0.4",
@@ -64,7 +73,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "^9.1.2",
     "cssnano": "^7.0.6",
-    "electron": "^35.1.4",
+    "electron": "^35.1.5",
     "fs-extra": "^11.3.0",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss": "^8.5.3",
@@ -84,11 +93,6 @@
     "webpack-cli": "^6.0.1"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "./dist/main/main.js",
-  "config": {
-    "forge": "./forge.config.ts"
-  },
   "keywords": [],
-  "author": "",
   "license": "ISC"
 }

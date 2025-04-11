@@ -16,28 +16,19 @@ const getStoredList = (): TodoItem[] => {
   return storedList ? JSON.parse(storedList) : [];
 };
 
-const get = (): TodoItem[] => {
-  const storedList = localStorage.getItem("todoListApi");
-  return storedList ? JSON.parse(storedList) : [];
-};
-
-
-
 
 const Form: React.FC = () => {
   const [list, setList] = useState<TodoItem[]>(getStoredList);
 const [inputValue, setInputValue] = useState<string>("");
 const [searchQuery, setSearchQuery] = useState<string>("");
-const [Apilist , setApiList] = useState<TodoItem[]>(get);
+
 
 const addApi = async () => {
   try {
-    const newList = await getItems(Apilist.length);
+    const newList = await getItems();
 
     setList((prevList) => [...prevList, ...newList]);
     localStorage.setItem("todoList", JSON.stringify([...list, ...newList])); 
-    setApiList((List) => [...Apilist, ...newList]);
-    localStorage.setItem("todoListApi", JSON.stringify([...Apilist, ...newList]))
   } catch (error) {
     console.error("Error fetching API data:", error);
   }
@@ -93,9 +84,6 @@ const addApi = async () => {
     const selectedItems = list.filter((item) => item.compleated);
     selectedItems.forEach((item) => deleteItem(item.id));
     setList(updatedList);
-    if (updatedList.length === 0) {
-      localStorage.setItem("todoListApi",JSON.stringify([]));
-    }
   };
 
   const toggleSelectAll = () => {

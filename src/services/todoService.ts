@@ -8,16 +8,12 @@ interface TodoItem {
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
-
 if (!apiUrl) {throw new Error("REACT_APP_API_URL does not exist")}
 
-export const getItems = async (start:number) => {
+export const getItems = async () => {
     const response = await axios.get<TodoItem[]>(apiUrl);
-    let end = start + 10;
 
-
-
-    const newList = response.data.slice(start,end).map((item) => ({
+    const newList = response.data.slice(0, 10).map((item) => ({
         id: item.id,
         title: item.title,
         compleated: item.compleated,
