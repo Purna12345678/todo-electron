@@ -19,7 +19,7 @@
   "include": [
     "src", 
     "vite-env.d.ts", 
-    "posthtml.config.ts" 
+    "posthtml.config.js" 
   ],
   "exclude": [
     "node_modules" 

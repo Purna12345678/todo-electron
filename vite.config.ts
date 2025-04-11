@@ -4,6 +4,7 @@ import { NodeModulesPolyfillPlugin } from "@esbuild-plugins/node-modules-polyfil
 import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 export default defineConfig({
+  base: './',
   plugins: [
     react(),
     nodePolyfills({
@@ -18,7 +19,7 @@ export default defineConfig({
     },
   },
   css: {
-    postcss: {}, 
+    postcss: {},
   },
   optimizeDeps: {
     esbuildOptions: {
@@ -38,6 +39,6 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
+    port: 5173,
   },
 });
