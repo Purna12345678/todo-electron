@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/icon=images-icon.png-win32-ia32
+/release-builds
 /.pnp
 .pnp.js
 
